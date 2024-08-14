@@ -2,9 +2,7 @@ package ilya.starter.sqlcheck.configuration;
 
 import ilya.starter.sqlcheck.validation.ValidPackagePaths;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.boot.context.properties.bind.ConstructorBinding;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;

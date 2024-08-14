@@ -13,7 +13,7 @@ public record SqlNotFoundFieldsContainer(Class<?> sqlDto,
         sb.append("Field mismatch between sql view class '")
                 .append(sqlDto.getName()).append("' and '").append(entity.getName()).append("'\n")
                 .append("entity have this fields but sql view doesn't have \n");
-        for(final var field : this.entityNotResolvedFields) {
+        for (final var field : this.entityNotResolvedFields) {
             sb.append("'").append(field.getName()).append("'\n");
         }
         return sb.append("\n\n").toString();

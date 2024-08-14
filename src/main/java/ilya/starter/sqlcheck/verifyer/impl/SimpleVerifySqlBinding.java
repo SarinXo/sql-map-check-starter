@@ -1,15 +1,15 @@
 package ilya.starter.sqlcheck.verifyer.impl;
 
-import ilya.starter.sqlcheck.exception.model.SqlMismatchFieldsNamesContainer;
-import ilya.starter.sqlcheck.model.Pair;
-import ilya.starter.sqlcheck.userapi.SqlSkipTypeCheck;
-import ilya.starter.sqlcheck.userapi.SqlBind;
-import ilya.starter.sqlcheck.userapi.SqlIdType;
 import ilya.starter.sqlcheck.exception.SqlBindingAppException;
 import ilya.starter.sqlcheck.exception.model.SqlBindProblem;
+import ilya.starter.sqlcheck.exception.model.SqlMismatchFieldsNamesContainer;
 import ilya.starter.sqlcheck.exception.model.SqlMismatchFieldsTypesContainer;
 import ilya.starter.sqlcheck.exception.model.SqlNotFoundFieldsContainer;
 import ilya.starter.sqlcheck.exception.model.SqlTooManyFieldsContainer;
+import ilya.starter.sqlcheck.model.Pair;
+import ilya.starter.sqlcheck.userapi.SqlBind;
+import ilya.starter.sqlcheck.userapi.SqlIdType;
+import ilya.starter.sqlcheck.userapi.SqlSkipTypeCheck;
 import ilya.starter.sqlcheck.verifyer.VerifySqlBinding;
 import jakarta.annotation.Nullable;
 
@@ -35,7 +35,7 @@ public class SimpleVerifySqlBinding implements VerifySqlBinding {
 
     @Override
     public void throwIfExistsProblem() throws SqlBindingAppException {
-        if(problems.isEmpty())
+        if (problems.isEmpty())
             return;
 
         throw new SqlBindingAppException(problems);
@@ -50,8 +50,8 @@ public class SimpleVerifySqlBinding implements VerifySqlBinding {
         long entityFieldsSize = sizeWithoutSqlSkipCheck(entityFields);
         long sqlFieldsSize = sizeWithoutSqlSkipCheck(sqlFields);
 
-        if(entityFieldsSize != sqlFieldsSize) {
-            if(entityFieldsSize > sqlFieldsSize) {
+        if (entityFieldsSize != sqlFieldsSize) {
+            if (entityFieldsSize > sqlFieldsSize) {
                 final var problem = haveNotMappedFields(entity, entityFields, sqlView, sqlFields);
                 problems.add(problem);
             } else {
@@ -62,11 +62,11 @@ public class SimpleVerifySqlBinding implements VerifySqlBinding {
         }
 
         var problemWithMapping = checkCorrectFields(entity, entityFields, sqlView, sqlFields);
-        if(problemWithMapping != null)
+        if (problemWithMapping != null)
             problems.add(problemWithMapping);
 
         var problemWithNames = checkCorrectNames(entity, entityFields, sqlView, sqlFields);
-        if(problemWithNames != null)
+        if (problemWithNames != null)
             problems.add(problemWithNames);
 
     }
@@ -86,7 +86,7 @@ public class SimpleVerifySqlBinding implements VerifySqlBinding {
         entityFields.removeAll(commonFields);
         sqlFields.removeAll(commonFields);
 
-        var mismatchFields = new HashMap< Field, Pair<Class<?>, Class<?>> >();
+        var mismatchFields = new HashMap<Field, Pair<Class<?>, Class<?>>>();
         mismatchFields.putAll(findFieldMismatches(entityFields, sqlFields));
         mismatchFields.putAll(findFieldMismatches(sqlFields, entityFields));
 
@@ -110,9 +110,9 @@ public class SimpleVerifySqlBinding implements VerifySqlBinding {
         sqlFieldsNames.removeAll(copy);
 
         var mismatchFields = new HashMap<Class<?>, Set<String>>();
-        if(!entityFieldsNames.isEmpty())
+        if (!entityFieldsNames.isEmpty())
             mismatchFields.put(entity, entityFieldsNames);
-        if(!sqlFieldsNames.isEmpty())
+        if (!sqlFieldsNames.isEmpty())
             mismatchFields.put(sqlView, sqlFieldsNames);
 
         return mismatchFields.isEmpty()
@@ -191,7 +191,7 @@ public class SimpleVerifySqlBinding implements VerifySqlBinding {
         var common = new HashSet<Field>();
         for (var f1 : diminishable) {
             for (var f2 : subtracted) {
-                if(isIdenticalNames(f1, f2) || skipTypeCheck(f1) || skipTypeCheck(f2)) {
+                if (isIdenticalNames(f1, f2) || skipTypeCheck(f1) || skipTypeCheck(f2)) {
                     common.add(f1);
                 }
             }

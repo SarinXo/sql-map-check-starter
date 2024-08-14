@@ -28,6 +28,7 @@ public @interface SqlIdType {
      *     private Integer entity;
      * }
      * }</pre>
+     *
      * @return класс соответствующий атрибуту sql
      */
     Class<?> value();

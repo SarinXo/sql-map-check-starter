@@ -24,6 +24,7 @@ public @interface SqlBind {
      *     ...
      * }
      * }</pre>
+     *
      * @return класс ORM модели
      */
     Class<?> value();

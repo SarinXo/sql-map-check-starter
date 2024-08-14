@@ -28,7 +28,7 @@ public class SimpleSqlViewLoader implements SqlViewLoader {
     @Override
     public Set<Class<?>> loadSqlViewClasses(List<String> directories) {
         Set<Class<?>> sqlView = new HashSet<>();
-        directories.forEach( dir -> {
+        directories.forEach(dir -> {
             sqlView.addAll(loadFromDirectory(dir));
         });
         return sqlView;
@@ -54,11 +54,11 @@ public class SimpleSqlViewLoader implements SqlViewLoader {
             return classesWithAnnotation;
 
         var files = directory.listFiles();
-        if(files == null)
+        if (files == null)
             return classesWithAnnotation;
 
         for (File file : files) {
-            if(file.isDirectory())
+            if (file.isDirectory())
                 findSqlFiles(classesWithAnnotation, file, baseDirectory);
 
             if (file.isFile() && file.getName().endsWith(".class")) {

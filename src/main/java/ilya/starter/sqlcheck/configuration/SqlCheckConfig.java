@@ -1,9 +1,9 @@
 package ilya.starter.sqlcheck.configuration;
 
-import ilya.starter.sqlcheck.verifyer.impl.SimpleSqlViewLoader;
-import ilya.starter.sqlcheck.verifyer.impl.SimpleVerifySqlBinding;
 import ilya.starter.sqlcheck.verifyer.SqlViewLoader;
 import ilya.starter.sqlcheck.verifyer.VerifySqlBinding;
+import ilya.starter.sqlcheck.verifyer.impl.SimpleSqlViewLoader;
+import ilya.starter.sqlcheck.verifyer.impl.SimpleVerifySqlBinding;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
@@ -20,7 +20,7 @@ public class SqlCheckConfig {
 
     @Bean
     @ConditionalOnMissingBean(SqlViewLoader.class)
-    public SqlViewLoader sqlViewLoader(SqlCheckProperties properties){
+    public SqlViewLoader sqlViewLoader(SqlCheckProperties properties) {
         return new SimpleSqlViewLoader(properties.getPathsToPackages());
     }
 

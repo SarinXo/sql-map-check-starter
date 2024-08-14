@@ -5,7 +5,7 @@ import jakarta.annotation.Nonnull;
 
 import java.util.List;
 
-public class SqlBindingAppException extends RuntimeException{
+public class SqlBindingAppException extends RuntimeException {
     private final List<SqlBindProblem> bindExceptions;
 
     public SqlBindingAppException(@Nonnull List<SqlBindProblem> bindExceptions) {
@@ -31,7 +31,8 @@ public class SqlBindingAppException extends RuntimeException{
     private static String getMessage(@Nonnull List<SqlBindProblem> bindExceptions) {
         final var sb = new StringBuilder();
         sb.append("""
-                \n\n
+                \n
+                
                 ****************************
                 APPLICATION SQL CHECK FAILED
                 ****************************
