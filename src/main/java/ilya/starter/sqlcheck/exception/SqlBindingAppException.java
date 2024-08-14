@@ -30,7 +30,13 @@ public class SqlBindingAppException extends RuntimeException{
 
     private static String getMessage(@Nonnull List<SqlBindProblem> bindExceptions) {
         final var sb = new StringBuilder();
-        sb.append("Error with Sql binding! Reasons:\n");
+        sb.append("""
+                \n\n
+                ****************************
+                APPLICATION SQL CHECK FAILED
+                ****************************
+                """);
+        sb.append("\nError with Sql binding! Reasons:\n\n");
         bindExceptions.stream()
                 .map(SqlBindProblem::toMessage)
                 .forEach(sb::append);
