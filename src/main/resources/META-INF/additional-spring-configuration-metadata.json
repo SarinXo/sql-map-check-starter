@@ -1,0 +1,16 @@
+{
+  "properties": [
+    {
+      "name": "sqlcheck.enable",
+      "type": "java.lang.Boolean",
+      "defaultValue": false,
+      "description": "Включает проверку sql сопоставления (по умолчанию true)."
+    },
+    {
+      "name": "sqlcheck.paths-to-packages",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "ilya.starter.sqlcheck.configuration.SqlCheckProperties",
+      "description": "Пути относительно корня проекта, по которым должна быть произведена сборка классов для дальнейшей проверки."
+    }
+  ]
+}

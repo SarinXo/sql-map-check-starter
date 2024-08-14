@@ -1,0 +1,4 @@
+# event listener
+ilya.starter.sqlcheck.listener.CheckSqlTypesAfterStartAppListener
+# sql check config
+ilya.starter.sqlcheck.configuration.SqlCheckConfig
