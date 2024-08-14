@@ -11,7 +11,7 @@
 
     <groupId>ilya.starter</groupId>
     <artifactId>sqlcheck</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>sqlcheck</name>
     <description>sqlcheck</description>
     <url/>
