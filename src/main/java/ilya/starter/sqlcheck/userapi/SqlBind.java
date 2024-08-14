@@ -1,4 +1,4 @@
-package ilya.starter.sqlcheck.annotation;
+package ilya.starter.sqlcheck.userapi;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
@@ -26,5 +26,5 @@ public @interface SqlBind {
      * }</pre>
      * @return класс ORM модели
      */
-    Class<?> mappedClass();
+    Class<?> value();
 }

@@ -1,4 +1,4 @@
-package ilya.starter.sqlcheck.annotation;
+package ilya.starter.sqlcheck.userapi;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
@@ -16,18 +16,19 @@ public @interface SqlIdType {
      * @Entity(name = "table")
      * public class Table {
      *     ...
-     *     @SqlIdType(Integer.class)
-     *     @OneToMany(mappedBy = "mappedColumn")
+     *     @ManyToOne(fetch = FetchType.LAZY)
+     *     @JoinColumn(name = Fields.A_ENTITY, nullable = false)
      *     private AnotherEntity entity;
      * }
      *
      * @SqlBind(Table.class)
      * public class SqlTable {
      *     ...
+     *     @SqlIdType(AnotherEntity.class)
      *     private Integer entity;
      * }
      * }</pre>
      * @return класс соответствующий атрибуту sql
      */
-    Class<?> mappedClass();
+    Class<?> value();
 }
